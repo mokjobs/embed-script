@@ -32,8 +32,9 @@
         iframe.height = message.height;
       } else {
         iframe.height="100%";
+        iframe.style.visibility = "initial";
       }
-      iframe.style.visibility = "default"; // show the iframe
+      iframe.style.visibility = "initial"; // show the iframe
       var loading = document.getElementById(loadingBlockquoteId);
       console.log('loading', loading)
       if (loading && loading.parentNode) {

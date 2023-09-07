@@ -26,6 +26,7 @@
       console.log('current iframe', iframe)
 
       var message = e.data;
+      console.log("message sent", message)
       if (e.source == iframe.contentWindow && message.height) {
 
         iframe.height = message.height;

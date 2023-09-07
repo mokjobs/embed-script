@@ -20,6 +20,7 @@
     return frameObject;
   };
   var handleLoad = function handleLoad(iframe) {
+    console.log('iframe loaded')
     window.addEventListener("message", function (e) {
 
       console.log('current iframe', iframe)
@@ -38,9 +39,10 @@
     }, false);
   };
   var blockquote = document.getElementById(blockquoteId);
-  console.log('the blockquote')
+  console.log('the blockquote', blockquote)
   blockquote.id = loadingBlockquoteId;
   var genIframe = framePreload(blockquote.dataset.blindPermalink);
+  console.log('iframe', genIframe)
   genIframe.onload = function () {
     handleLoad(genIframe, blockquote);
   };

@@ -40,8 +40,10 @@
       function (e) {
         var message = e.data;
         console.log('================ MESSEAGE EVENT ===============')
-        console.log(e)
-        console.log(e.data)
+
+        console.log('event', e)
+        console.log('origin', e.origin)
+        console.log('data', e.data)
         if (e.source == iframe.contentWindow && message.height) {
           // if message properly received, set the height
           iframe.height = message.height;

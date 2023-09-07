@@ -30,6 +30,8 @@
       if (e.source == iframe.contentWindow && message.height) {
 
         iframe.height = message.height;
+      } else {
+        iframe.height="100%";
       }
       iframe.style.visibility = "default"; // show the iframe
       var loading = document.getElementById(loadingBlockquoteId);

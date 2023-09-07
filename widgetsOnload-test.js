@@ -29,7 +29,7 @@
     // once iframe loaded, set the height and visibility
     iframe.height = '100%';
     iframe.style.visibility = "visible";
-    iframe.style.minHeight = "640px";
+    iframe.style.minHeight = "450px";
 
     if (loading && loading.parentNode) {
       loading.parentNode.removeChild(loading); // remove the blockquote object

@@ -44,7 +44,7 @@
         console.log("message sent", message);
         if (e.source == iframe.contentWindow && message.height) {
           iframe.height = message.height;
-          iframe.style.minHeight = "100%";
+          iframe.style.minHeight = null;
         }
 
       },

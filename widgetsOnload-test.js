@@ -24,12 +24,12 @@
     return frameObject;
   };
   var handleLoad = function handleLoad(iframe) {
-    console.log("iframe loaded, set the height");
     var loading = document.getElementById(loadingBlockquoteId);
-    console.log("loading", loading);
+
+    // once iframe loaded, set the height and visibility
     iframe.height = '100%';
     iframe.style.visibility = "visible";
-    iframe.style.minHeight = "300px";
+    iframe.style.minHeight = "640px";
 
     if (loading && loading.parentNode) {
       loading.parentNode.removeChild(loading); // remove the blockquote object
@@ -38,24 +38,19 @@
     window.addEventListener(
       "message",
       function (e) {
-        console.log("current iframe", iframe);
-
         var message = e.data;
-        console.log("message sent", message);
         if (e.source == iframe.contentWindow && message.height) {
+          // if message properly received, set the height
           iframe.height = message.height;
           iframe.style.minHeight = null;
         }
-
       },
       false
     );
   };
   var blockquote = document.getElementById(blockquoteId);
-  console.log("the blockquote", blockquote);
   blockquote.id = loadingBlockquoteId;
   var genIframe = framePreload(blockquote.dataset.blindPermalink);
-  console.log("iframe", genIframe);
   genIframe.onload = function () {
     handleLoad(genIframe, blockquote);
   };

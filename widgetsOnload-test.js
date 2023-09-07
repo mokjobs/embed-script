@@ -28,7 +28,8 @@
     var loading = document.getElementById(loadingBlockquoteId);
     console.log("loading", loading);
     iframe.height = '100%';
-    iframe.style.visibility = "initial";
+    iframe.style.visibility = "visible";
+    iframe.style.minHeight = "300px";
 
     if (loading && loading.parentNode) {
       loading.parentNode.removeChild(loading); // remove the blockquote object
@@ -43,8 +44,9 @@
         console.log("message sent", message);
         if (e.source == iframe.contentWindow && message.height) {
           iframe.height = message.height;
+          iframe.style.minHeight = "100%";
         }
-        iframe.style.visibility = "initial"; // show the iframe
+
       },
       false
     );
